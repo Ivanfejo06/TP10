@@ -1,3 +1,4 @@
+namespace TP10.Models;
 public class temporadas{
     int idtemporada {get;set;}
     int idserie {get;set;}

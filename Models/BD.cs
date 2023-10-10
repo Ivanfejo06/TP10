@@ -1,17 +1,28 @@
 using System.Data.SqlClient;
 using Dapper;
 namespace TP10.Models;
+
 public static class BD
 {
     private static string _connectionString = @"Server=localhost; DataBase=TP9; Trusted_Connection=True;";
     
-    public static list<Series> InfoSeries()
+    public static list<Series> Series()
     {
         list<Series> devolver = null;
         string sql = "Select * From Series";
         using(SqlConnection db = new SqlConnection(_connectionString))
         {
             devolver = db.Query<Series>(sql).ToList();
+        }
+        return devolver;
+    }
+    public static list<Series> InfoSeries(int idserie)
+    {
+        Series devolver = null;
+        string sql = "Select * From Series where IdSerie = @Id";
+        using(SqlConnection db = new SqlConnection(_connectionString))
+        {
+            devolver = db.Queryfirstordefault<Series>(sql, new{Id = idserie});
         }
         return devolver;
     }
@@ -25,7 +36,6 @@ public static class BD
         }
         return devolver;
     }
-
     public static Temporadas InfoTemporadas(int idserie)
     {
         list<Temporadas> devolver = null;
