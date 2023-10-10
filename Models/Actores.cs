@@ -1,6 +1,6 @@
 namespace TP10.Models;
 public class Actores{
-    int idactor {get;set;} 
-    int idserie {get;set;}
-    string nombre {get;set;}
+    public int idactor {get;set;} 
+    public int idserie {get;set;}
+    public string nombre {get;set;}
 }

@@ -15,20 +15,20 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        ViewBag.Series = BD.InfoSeries();
+        ViewBag.Series = BD.Series();
         return View();
     }
 
-    public Actores VerDetalleActoresAjax(int idactor){
-        ViewBag.Actores = BD.
+    public Actores VerDetalleActoresAjax(int idserie){
+        ViewBag.Actores = BD.InfoActores(idserie);
         return ViewBag.Actores;
     }
     public Actores VerDetalleSeriesAjax(int idserie){
-        ViewBag.Series = BD.
+        ViewBag.Series = BD.InfoSerie(idserie);
         return ViewBag.Series;
     }
-    public Actores VerDetalleTemporadasAjax(int idtemporada){
-        ViewBag.Temporadas = BD.
+    public Actores VerDetalleTemporadasAjax(int idserie){
+        ViewBag.Temporadas = BD.InfoTemporadas(idserie);
         return ViewBag.Temporadas;
     }
 

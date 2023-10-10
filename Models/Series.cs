@@ -1,8 +1,8 @@
 namespace TP10.Models;
-public class series{
-    int idserie {get;set;}
-    string nombre {get;set;}
-    int añoinicio {get;set;}
-    string sinopsis {get;set;}
-    string imagen {get;set;}
+public class Series{
+    public int idserie {get;set;}
+    public string nombre {get;set;}
+    public int añoinicio {get;set;}
+    public string sinopsis {get;set;}
+    public string imagen {get;set;}
 }

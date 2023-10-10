@@ -4,11 +4,11 @@ namespace TP10.Models;
 
 public static class BD
 {
-    private static string _connectionString = @"Server=localhost; DataBase=TP9; Trusted_Connection=True;";
+    private static string _connectionString = @"Server=localhost; DataBase=BDSeries; Trusted_Connection=True;";
     
-    public static list<Series> Series()
+    public static List<Series> Series()
     {
-        list<Series> devolver = null;
+        List<Series> devolver = null;
         string sql = "Select * From Series";
         using(SqlConnection db = new SqlConnection(_connectionString))
         {
@@ -16,19 +16,19 @@ public static class BD
         }
         return devolver;
     }
-    public static list<Series> InfoSeries(int idserie)
+    public static Series InfoSerie(int idserie)
     {
         Series devolver = null;
         string sql = "Select * From Series where IdSerie = @Id";
         using(SqlConnection db = new SqlConnection(_connectionString))
         {
-            devolver = db.Queryfirstordefault<Series>(sql, new{Id = idserie});
+            devolver = db.QueryFirstOrDefault<Series>(sql, new{Id = idserie});
         }
         return devolver;
     }
-    public static Actores InfoActores(int idserie)
+    public static List<Actores> InfoActores(int idserie)
     {
-        list<Actores> devolver = null;
+        List<Actores> devolver = null;
         string sql = "Select * From Actores where IdSerie = @id";
         using(SqlConnection db = new SqlConnection(_connectionString))
         {
@@ -36,9 +36,9 @@ public static class BD
         }
         return devolver;
     }
-    public static Temporadas InfoTemporadas(int idserie)
+    public static List<Temporadas> InfoTemporadas(int idserie)
     {
-        list<Temporadas> devolver = null;
+        List<Temporadas> devolver = null;
         string sql = "Select * From Temporadas where IdSerie = @id";
         using(SqlConnection db = new SqlConnection(_connectionString))
         {

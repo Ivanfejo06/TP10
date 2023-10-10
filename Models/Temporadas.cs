@@ -1,7 +1,7 @@
 namespace TP10.Models;
-public class temporadas{
-    int idtemporada {get;set;}
-    int idserie {get;set;}
-    int numerotemporada {get;set;}
-    string titulotemporada {get;set;}
+public class Temporadas{
+    public int idtemporada {get;set;}
+    public int idserie {get;set;}
+    public int numerotemporada {get;set;}
+    public string titulotemporada {get;set;}
 }
