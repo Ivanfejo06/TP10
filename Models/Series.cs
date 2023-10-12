@@ -4,5 +4,5 @@ public class Series{
     public string nombre {get;set;}
     public int añoinicio {get;set;}
     public string sinopsis {get;set;}
-    public string imagen {get;set;}
+    public string imagenSerie {get;set;}
 }
