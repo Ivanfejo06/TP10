@@ -3,13 +3,14 @@
         {
             type: 'POST',
             dataType: 'JSON',
-            url: '/Home/Index',
+            url: '/Home/VerDetalleSeriesAjax',
             data: {idserie: id},
             success:
                 function(response)
                 {
                     $("#titulo").html(response.nombre);
-                    $("#info").html();
+                    $("#subtitulo").html("Año de estreno: " + response.añoinicio);
+                    $("#info").html(response.sinopsis);
                 }
         }
     );
@@ -19,13 +20,20 @@ function MostrarInfoTemporadas(id){
         {
             type: 'POST',
             dataType: 'JSON',
-            url: '/Home/Index',
+            url: '/Home/VerDetalleTemporadasAjax',
             data: {idserie: id},
             success:
                 function(response)
                 {
                     $("#titulo").html("Temporadas");
-                    $("#info").html(response.numerotemporada + " " + response.titulotemporada);
+                    $("#subtitulo").html("Cuenta con " + response.length + " temporadas");
+                    let infoTemporadas ="";
+                    
+                    response.forEach(element =>{
+                        infoTemporadas += element.titulotemporada + "<br>";
+                    });
+                    $("#info").html(infoTemporadas);
+                   
                 }
         }
     );
@@ -35,13 +43,19 @@ function MostrarInfoActores(id){
         {
             type: 'POST',
             dataType: 'JSON',
-            url: '/Home/Index',
+            url: '/Home/VerDetalleActoresAjax',
             data: {idserie: id},
             success:
                 function(response)
                 {
                     $("#titulo").html("Actores");
-                    $("#info").html(response.nombre);
+                    $("#subtitulo").html(null);
+                    let infoActores ="";
+                    
+                    response.forEach(element =>{
+                        infoActores += element.nombre + "<br>";
+                    });
+                    $("#info").html(infoActores);
                 }
         }
     );
